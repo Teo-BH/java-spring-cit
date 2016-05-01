@@ -4,38 +4,40 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.treinamento.dojo.config.TesteConfig;
-import br.com.treinamento.dojo.model.ImpostoICMS;
-import br.com.treinamento.dojo.model.ImpostoISS;
+import br.com.treinamento.dojo.model.Imposto;
 import br.com.treinamento.dojo.model.Produto;
-import br.com.treinamento.dojo.service.CalculadoraDeImpostoImplService;
+import br.com.treinamento.dojo.service.CalculadoraDeImpostoService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TesteConfig.class)
 public class CalculadoraDeImpostosTeste {
 
 	@Autowired
-	private ImpostoICMS icms;
+	@Qualifier("impostoICMS")
+	private Imposto icms;
 
-	public ImpostoICMS getICMS() {
+	public Imposto getICMS() {
 		return icms;
 	}
 
-	public void setICMS(ImpostoICMS icms) {
+	public void setICMS(Imposto icms) {
 		this.icms = icms;
 	}
 
 	@Autowired
-	private ImpostoISS iss;
+	@Qualifier("impostoISS")
+	private Imposto iss;
 	
-	public ImpostoISS getISS() {
+	public Imposto getISS() {
 		return iss;
 	}
 
-	public void setISS(ImpostoISS iss) {
+	public void setISS(Imposto iss) {
 		this.iss = iss;
 	}
 
@@ -51,13 +53,13 @@ public class CalculadoraDeImpostosTeste {
 	}
 	
 	@Autowired
-	private CalculadoraDeImpostoImplService calculadora;
+	private CalculadoraDeImpostoService calculadora;
 	
-	public CalculadoraDeImpostoImplService getCalculadora() {
+	public CalculadoraDeImpostoService getCalculadora() {
 		return calculadora;
 	}
 	
-	public void setCalculadora(CalculadoraDeImpostoImplService calculadora) {
+	public void setCalculadora(CalculadoraDeImpostoService calculadora) {
 		this.calculadora = calculadora;
 	}
 	

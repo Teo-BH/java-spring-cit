@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="calculadoraDeImpostoService" 
+		  class="br.com.treinamento.dojo.service.CalculadoraDeImpostoImplService" />
+	
+	<bean name="impostoICMS"
+	      class="br.com.treinamento.dojo.model.ImpostoICMS" />
+	      
+	<bean name="impostoISS"
+	      class="br.com.treinamento.dojo.model.ImpostoISS" />
+</beans>
