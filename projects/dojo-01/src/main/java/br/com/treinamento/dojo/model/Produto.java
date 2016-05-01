@@ -1,5 +1,8 @@
 package br.com.treinamento.dojo.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Produto {
 	
 	private String nome;

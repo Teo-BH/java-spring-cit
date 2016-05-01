@@ -8,17 +8,59 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.treinamento.dojo.config.TesteConfig;
+import br.com.treinamento.dojo.model.ImpostoICMS;
+import br.com.treinamento.dojo.model.ImpostoISS;
 import br.com.treinamento.dojo.model.Produto;
-import br.com.treinamento.dojo.service.CalculadoraDeImpostoService;
+import br.com.treinamento.dojo.service.CalculadoraDeImpostoImplService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TesteConfig.class)
 public class CalculadoraDeImpostosTeste {
 
-	private ICMS icms;
-	private ISS iss;
+	@Autowired
+	private ImpostoICMS icms;
+
+	public ImpostoICMS getICMS() {
+		return icms;
+	}
+
+	public void setICMS(ImpostoICMS icms) {
+		this.icms = icms;
+	}
+
+	@Autowired
+	private ImpostoISS iss;
+	
+	public ImpostoISS getISS() {
+		return iss;
+	}
+
+	public void setISS(ImpostoISS iss) {
+		this.iss = iss;
+	}
+
+	@Autowired
 	private Produto produto;
-	private CalculadoraDeImpostoService calculadora;
+	
+	public Produto getProduto() {
+		return produto;
+	}
+	
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+	
+	@Autowired
+	private CalculadoraDeImpostoImplService calculadora;
+	
+	public CalculadoraDeImpostoImplService getCalculadora() {
+		return calculadora;
+	}
+	
+	public void setCalculadora(CalculadoraDeImpostoImplService calculadora) {
+		this.calculadora = calculadora;
+	}
+	
 
 	@Test
 	public void testISS() {
