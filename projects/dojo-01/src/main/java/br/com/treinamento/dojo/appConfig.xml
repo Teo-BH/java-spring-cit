@@ -2,13 +2,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+	
+	<!-- Imposto -->
 	<bean name="calculadoraDeImpostoService" 
 		  class="br.com.treinamento.dojo.service.CalculadoraDeImpostoImplService" />
 	
 	<bean name="impostoICMS"
 	      class="br.com.treinamento.dojo.model.ImpostoICMS" />
-	      
 	<bean name="impostoISS"
 	      class="br.com.treinamento.dojo.model.ImpostoISS" />
+	      
+	<!-- Desconto -->
+	<bean name="calculadoraDeDescontos"
+		  class="br.com.treinamento.dojo.service.CalculadoraDeDescontosImpl" />
+
+	<bean name="desconto5"
+	      class="br.com.treinamento.dojo.model.Desconto5" />
+	<bean name="desconto10"
+	      class="br.com.treinamento.dojo.model.Desconto10" />
+	<bean name="descontos"
+	      class="java.util.ArrayList">
+	      <constructor-arg index="0">
+		      <list>
+		      	<ref bean="desconto5" />
+		      	<ref bean="desconto10" />
+		      </list>
+	      </constructor-arg>
+	</bean>
+	
 </beans>

@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,7 +20,16 @@ import br.com.treinamento.dojo.service.CalculadoraDeDescontos;
 @ContextConfiguration(classes = TesteConfig.class)
 public class CalculadorDeDescontosTeste {
 
-	private CalculadoraDeDescontos calculadorDescontos;
+	@Autowired
+	private CalculadoraDeDescontos calculadora;
+
+	public CalculadoraDeDescontos getCalculadora() {
+		return calculadora;
+	}
+
+	public void setCalculadora(CalculadoraDeDescontos calculadora) {
+		this.calculadora = calculadora;
+	}
 
 	@Test
 	public void testMaiorQueMil() {
@@ -32,7 +42,7 @@ public class CalculadorDeDescontosTeste {
 
 		Carrinho carrinho = new Carrinho(1500, listaProdutos);
 
-		double desconto = calculadorDescontos.calcula(carrinho);
+		double desconto = getCalculadora().calcula(carrinho);
 
 		System.out.println(desconto);
 		assertTrue(desconto == 150);
@@ -59,7 +69,7 @@ public class CalculadorDeDescontosTeste {
 
 		Carrinho carrinho = new Carrinho(10, listaProdutos);
 
-		double desconto = calculadorDescontos.calcula(carrinho);
+		double desconto = getCalculadora().calcula(carrinho);
 
 		System.out.println(desconto);
 		assertTrue(desconto == 0.50);
@@ -76,10 +86,9 @@ public class CalculadorDeDescontosTeste {
 
 		Carrinho carrinho = new Carrinho(999, listaProdutos);
 
-		double desconto = calculadorDescontos.calcula(carrinho);
+		double desconto = getCalculadora().calcula(carrinho);
 
 		System.out.println(desconto);
 		assertTrue(desconto == 0);
 	}
-
 }
