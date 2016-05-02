@@ -1,4 +1,4 @@
-Dojo Java/Sprint CI&T
+Dojo Java/Spring CI&T
 
 Ferramentas
 
