@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class Pessoa {
-
+	
 	public String cpf;
 	public String nome;
 	public List<Cartao> cartoes;

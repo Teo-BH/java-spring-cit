@@ -35,6 +35,8 @@ public class CartoesController {
 
 	@RequestMapping(value = "/cartoes", method = RequestMethod.POST)
 	public ResponseEntity<String> cartoesPost(@RequestHeader("CPF") String cpf, @RequestBody String body) {
+		
+		
 		// TODO: Retornar mensagem
 		return new ResponseEntity<String>("mensagem", HttpStatus.OK);
 	}

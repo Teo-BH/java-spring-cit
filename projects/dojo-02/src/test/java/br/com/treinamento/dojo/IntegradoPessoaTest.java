@@ -38,11 +38,11 @@ public class IntegradoPessoaTest {
 		
 		Response response = webTarget				
 				.request()
-				.header("cpf", Constants.CPF_INVALIDO)		
+				.header("cpf", Constants.CPF_COM_CARTAO)		
 				.accept(MediaType.APPLICATION_JSON)
 				.get();
 		
-		assertEquals(HttpStatus.OK, response.getStatus());
+		assertEquals(HttpStatus.OK.value(), response.getStatus());
 		
 		String json = response.readEntity(String.class);
 		System.out.println(json);
@@ -50,12 +50,12 @@ public class IntegradoPessoaTest {
 		Gson gson = new Gson();		
 		ResponseProtocol resposta = gson.fromJson(json, ResponseProtocol.class);
 	
+		// TODO: Ajustar pois não retornar um JSON válido em: resposta.getData().toString()
+		System.out.println(resposta.getData().getClass()); // => class com.google.gson.internal.LinkedTreeMap
 		Pessoa pessoa = gson.fromJson(resposta.getData().toString(), Pessoa.class);
 		
 		assertNotNull(pessoa);
 		assertNotNull(pessoa.getEnderecos());
 		assertTrue(pessoa.getEnderecos().size() != 0);
 	}
-	
-
 }
