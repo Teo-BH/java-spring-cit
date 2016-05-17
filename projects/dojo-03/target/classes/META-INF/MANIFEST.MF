@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: dojo-03
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: ulysses
+Built-By: tmoura
 Implementation-Vendor-Id: br.com.treinamento
 Build-Jdk: 1.8.0_91
 Created-By: Maven Integration for Eclipse
